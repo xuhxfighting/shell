@@ -11,6 +11,7 @@ EOF
 #!/bin/bash
 c="Bash also interprets a number of multi-character options."
 n=`echo $c | awk -F ' ' '{print NF}'`
+#for ((i=1;i<$n;i++));do
 for i in `seq 1 $n`;do
     #l=`echo $c|awk -F ' ' '{print $i}'|wc -L`
     l=`echo $c | cut -d ' ' -f $i|wc -L`
@@ -18,3 +19,5 @@ for i in `seq 1 $n`;do
        echo $c|awk -F ' ' -v j=$i '{print $j}'
     fi
 done
+#awk -v 来向awk程序中传参数,shell中的变量awk不能使用
+#seq
